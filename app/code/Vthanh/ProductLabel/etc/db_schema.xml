@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="vthanh_label" resource="default" engine="innodb" comment="Product Label Table">
+        <column xsi:type="int" name="label_id" unsigned="true" nullable="false" identity="true"
+                comment="Label ID"/>
+        <column xsi:type="smallint" name="is_active" unsigned="true" nullable="false" identity="false"
+                default="1" comment="Active"/>
+        <column xsi:type="timestamp" name="create_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <column xsi:type="timestamp" name="start_time" on_update="false" nullable="false"
+                comment="Start Time"/>
+        <column xsi:type="timestamp" name="end_time" on_update="false" nullable="false"
+                comment="End Time"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Title"/>
+        <column xsi:type="varchar" name="image_label" nullable="true" length="255" comment="Image Label"/>
+        <column xsi:type="varchar" name="position" nullable="true" length="100" comment="Position Label"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="label_id"/>
+        </constraint>
+    </table>
+    <table name="product_label_index" resource="default" engine="innodb" comment="Product Label Index">
+        <column xsi:type="int" name="label_id" unsigned="true" nullable="false" comment="Label ID"/>
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false" comment="Product ID"/>
+    </table>
+</schema>
