@@ -1,0 +1,12 @@
+
+#image_label {
+    display: block;
+    text-align: center;
+    transform: translateX(-20%);
+    margin-bottom: 20px;
+}
+
+#image_label img {
+    width: 200px;
+    height: 200px;
+}

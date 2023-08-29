@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="ImageLabel" type="Magento\Catalog\Model\ImageUpLoader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">product/label</argument>
+            <argument name="basePath" xsi:type="string">label</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Vthanh\ProductLabel\Controller\Adminhtml\Label\Image\SaveImage">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">ImageLabel</argument>
+        </arguments>
+    </type>
+
+    <type name="Vthanh\ProductLabel\Model\ResourceModel\Label">
+        <arguments>
+            <argument name="associatedEntitiesMap" xsi:type="array">
+                <item name="store" xsi:type="array">
+                    <item name="associations_table" xsi:type="string">productlabel_store</item>
+                    <item name="rule_id_field" xsi:type="string">label_id</item>
+                    <item name="entity_id_field" xsi:type="string">store_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Vthanh\ProductLabel\Model\ResourceModel\Label\Collection">
+        <arguments>
+            <argument name="associatedEntitiesMap" xsi:type="array">
+                <item name="store" xsi:type="array">
+                    <item name="associations_table" xsi:type="string">productlabel_store</item>
+                    <item name="rule_id_field" xsi:type="string">label_id</item>
+                    <item name="entity_id_field" xsi:type="string">store_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
